@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en-us" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>The install worked successfully! Congratulations!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+          html {
+            line-height: 1.15;
+          }
+          a {
+            color: #19865C;
+          }
+
+          body {
+            max-width: 960px;
+            color: #525252;
+            font-family: "Segoe UI", system-ui, sans-serif;
+            margin: 0 auto;
+          }
+          main {
+            box-sizing: border-box;
+            margin: 14vh auto 0;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+          }
+          h1, h2, h3, h4, h5, p, ul, input[submit] {
+            padding: 10px;
+            margin: 0;
+            font-weight: 400;
+          }
+
+          h1 {
+            font-size: 1.375rem;
+            max-width: 32rem;
+            margin: 5px auto 0;
+          }
+          main p {
+            line-height: 1.25;
+            max-width: 26rem;
+            margin: 15px auto 0;
+          }
+
+
+        /* FORM LABELS */
+
+          label {
+              font-weight: normal;
+              color: #19865C;
+          }
+
+          .required label, label.required {
+              font-weight: bold;
+              color: #525252;
+          }
+          .helptext {
+            display: block;
+            margin: 5px;
+          }        
+          /* FORM error */
+
+          ul.errorlist li {
+              color: #ba2121;
+              display: block;
+              margin-bottom: 4px;
+              overflow-wrap: break-word;
+          }
+
+          .data {
+            max-width: 600px;
+            width: auto;
+
+            margin: 15px;
+            font-size: 1.5rem;
+            text-align:left;
+           }
+
+           ul.data{
+            list-style-type: none;
+          }           
+        </style>
+    </head>
+    <body>
+      <main>
+        <h1>Поиск по номеру</h1>
+        <form method="post" action=""  enctype="multipart/form-data">{% csrf_token %}
+          {{ form.as_div }}
+          <input type="submit" value="проверить номер"  >
+        </form>
+      </div>
+
+      {% if data %}
+
+        {% if data.error %}
+          <ul class="errorlist"><li>ошибка: <b>{{data.error}}</b></li></ul>
+        {% else %}
+          <ul class='data'>
+            <li>{{data.phone_numder}}</li>
+            <li>{{data.operator}}</li>
+            <li>{{data.region}}</li>
+          </ul>
+        {% endif %}
+      {% endif %}
+
+
+      
+
+
+      </main>
+
+    </body>
+</html>

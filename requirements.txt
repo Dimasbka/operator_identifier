@@ -1,0 +1,8 @@
+Django==5.0.1
+psycopg2==2.9.9
+pydantic==2.6.1
+djangorestframework==3.14.0
+unittest
+
+
+
